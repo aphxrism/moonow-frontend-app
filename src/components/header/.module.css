@@ -1,3 +1,7 @@
-.header {
+.headerSign {
     color:#ccc;
+}
+
+.header {
+    background-color: #333;
 }
