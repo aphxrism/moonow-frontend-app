@@ -1,18 +1,19 @@
 import { ApplicationStorageConsumer } from '../../common/context'
-import { IApplicationStorage } from '../../common/interfaces/application'
+import { Component } from '../../common/modules/component'
 import styles from './.module.css'
-import React from 'react'
 
-export class Header extends React.Component {
+export class Header extends Component {
     render () {
+
         return (
-            <header className={styles.header} >
-                <ApplicationStorageConsumer>
-                    {(storage: IApplicationStorage) => (
-                        <h1 className={styles.headerSign} >{storage.appName}</h1>
-                    )}
-                </ApplicationStorageConsumer>
-            </header>
+            <ApplicationStorageConsumer>
+                {(context: any) => 
+                    <header onClick={() => 
+                        context.update({ loginPopUp: !context.loginPopUp })
+                    } className={styles.header} >
+                        <h1 className={styles.headerSign} >{context.appName}</h1>
+                    </header>}
+            </ApplicationStorageConsumer>
         )
     }
 }

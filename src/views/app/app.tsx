@@ -4,6 +4,8 @@ import styles from './.module.css'
 import { Header } from '../../components/header/header'
 import { BrowserRouter } from 'react-router-dom'
 import React from 'react'
+import { Row } from '../../components/row/row'
+import { LoginPopUp } from '../../components/loginPopUp/loginPopUp'
 
 export class App extends React.Component {
     render () {
@@ -11,11 +13,14 @@ export class App extends React.Component {
             <BrowserRouter>
                 <div className={styles.App} >
                     <Header />
-                    <div>
+                    <Row>
                         <Routes>
                             <Route path='/' element={<IndexPage />} />
                         </Routes>
-                    </div>
+                    </Row>
+
+                    <LoginPopUp />
+
                 </div>
             </BrowserRouter>
         )
