@@ -1,20 +1,24 @@
 import React from 'react'
-import { useLogInPopUpContext } from '../../common/loginPopUpContext'
+import { useApplicationStateContext } from '../../common/applicationStateContext'
 import styles from './.module.css'
 
 export const Header = () => {
 
-    const { active, toggle } = useLogInPopUpContext()
+    const { 
+        appName,
+        loginPopUp,
+        update,
+    } = useApplicationStateContext()
 
-    if (!toggle) return <></>
+    if (!update) return <></>
 
     return (
         <header onClick={() => {
-            toggle({
-                active: !active,
+            update({
+                loginPopUp: !loginPopUp,
             })
         }} className={styles.header} >
-            <h1 className={styles.headerSign} >{active.toString()}</h1>
+            <h1 className={styles.headerSign} >{appName}</h1>
         </header>
     )
 }

@@ -1,14 +1,16 @@
 import React from 'react'
-import { useLogInPopUpContext } from '../../common/loginPopUpContext'
+import { useApplicationStateContext } from '../../common/applicationStateContext'
 
 export const LoginPopUp = () => {
-    const { active } = useLogInPopUpContext()
+    const { loginPopUp } = useApplicationStateContext()
     
-    if (!active) return <></>
+    if (!loginPopUp) return <></>
 
     return (
-        <div>
-            Sex test
-        </div>
+        <>
+            <div>
+                Sex test
+            </div>
+        </>
     )
 }

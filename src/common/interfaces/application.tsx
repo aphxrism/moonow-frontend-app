@@ -1,7 +1,9 @@
-export interface ILogInPopUp {
-    active: boolean
+export interface IApplicationState {
+    loginPopUp: boolean
 
     appName: string
+}
 
-    toggle?: (active: any) => any
+export type IApplicationStateContext = IApplicationState & {
+    update?: (data: Partial<IApplicationState>) => void
 }
