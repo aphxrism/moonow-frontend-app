@@ -14,10 +14,6 @@
     transition: .75s opacity;
 }
 
-.enabled {
-    opacity: 1;
-}
-
 .disabled {
     opacity: 0;
 

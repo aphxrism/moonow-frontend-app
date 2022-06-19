@@ -6,7 +6,7 @@ export const BlurCover = (props: any) => {
     return (
         <div className={[
             styles.blurCover,
-            props.active ? styles.enabled : styles.disabled,
+            props.active ? '' : styles.disabled,
         ].join(' ')} />
     )
 }

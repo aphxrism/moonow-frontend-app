@@ -8,6 +8,7 @@ import { Row } from '../../components/row/row'
 import { LoginPopUp } from '../../components/loginPopUp/loginPopUp'
 import { useApplicationStateContext } from '../../common/applicationStateContext'
 import { BlurCover } from '../../components/blurCover/blurCover'
+import { FlexCover } from '../../components/flexCover/flexCover'
 
 export const App = () => {
     const { loginPopUp } = useApplicationStateContext()
@@ -27,7 +28,9 @@ export const App = () => {
 
                 <BlurCover active={blurCoverActive} />
 
-                <LoginPopUp />
+                <FlexCover>
+                    <LoginPopUp />
+                </FlexCover>
             </div>
         </BrowserRouter>
     )

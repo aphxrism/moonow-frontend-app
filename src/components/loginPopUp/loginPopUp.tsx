@@ -2,15 +2,21 @@ import React from 'react'
 import { useApplicationStateContext } from '../../common/applicationStateContext'
 
 export const LoginPopUp = () => {
-    const { loginPopUp } = useApplicationStateContext()
+    const { loginPopUp, update, getTextStorage } = useApplicationStateContext()
     
-    if (!loginPopUp) return <></>
+    if (!loginPopUp || !update || !getTextStorage) return <></>
+
+    const texts = getTextStorage()
 
     return (
-        <>
-            <div>
-                Sex test
-            </div>
-        </>
+        <div>
+            <input type='email' />
+
+            <br />
+
+            <button onClick={() => update({
+                loginPopUp: false,
+            })} >{texts.close}</button>
+        </div>
     )
 }
