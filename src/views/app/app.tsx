@@ -6,23 +6,26 @@ import { BrowserRouter } from 'react-router-dom'
 import React from 'react'
 import { Row } from '../../components/row/row'
 import { LoginPopUp } from '../../components/loginPopUp/loginPopUp'
+import { LogInPopUpProvider } from '../../common/loginPopUpContext'
 
 export class App extends React.Component {
     render () {
         return (
-            <BrowserRouter>
-                <div className={styles.App} >
-                    <Header />
-                    <Row>
-                        <Routes>
-                            <Route path='/' element={<IndexPage />} />
-                        </Routes>
-                    </Row>
+            <LogInPopUpProvider>
+                <BrowserRouter>
+                    <div className={styles.App} >
+                        <Header />
+                        <Row>
+                            <Routes>
+                                <Route path='/' element={<IndexPage />} />
+                            </Routes>
+                        </Row>
 
-                    <LoginPopUp />
+                        <LoginPopUp />
 
-                </div>
-            </BrowserRouter>
+                    </div>
+                </BrowserRouter>
+            </LogInPopUpProvider>
         )
     }
 }

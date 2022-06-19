@@ -1,17 +1,14 @@
 import React from 'react'
-import { Component } from '../../common/modules/component'
+import { useLogInPopUpContext } from '../../common/loginPopUpContext'
 
-export class LoginPopUp extends Component {
-    render () {
+export const LoginPopUp = () => {
+    const { active } = useLogInPopUpContext()
+    
+    if (!active) return <></>
 
-        const { loginPopUp } = this.getContext()
-        
-        if (!loginPopUp) return <></>
-
-        return (
-            <div>
-                Sex test
-            </div>
-        )
-    }
+    return (
+        <div>
+            Sex test
+        </div>
+    )
 }

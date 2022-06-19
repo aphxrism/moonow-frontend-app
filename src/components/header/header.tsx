@@ -1,19 +1,20 @@
-import { ApplicationStorageConsumer } from '../../common/context'
-import { Component } from '../../common/modules/component'
+import React from 'react'
+import { useLogInPopUpContext } from '../../common/loginPopUpContext'
 import styles from './.module.css'
 
-export class Header extends Component {
-    render () {
+export const Header = () => {
 
-        return (
-            <ApplicationStorageConsumer>
-                {(context: any) => 
-                    <header onClick={() => 
-                        context.update({ loginPopUp: !context.loginPopUp })
-                    } className={styles.header} >
-                        <h1 className={styles.headerSign} >{context.appName}</h1>
-                    </header>}
-            </ApplicationStorageConsumer>
-        )
-    }
+    const { active, toggle } = useLogInPopUpContext()
+
+    if (!toggle) return <></>
+
+    return (
+        <header onClick={() => {
+            toggle({
+                active: !active,
+            })
+        }} className={styles.header} >
+            <h1 className={styles.headerSign} >{active.toString()}</h1>
+        </header>
+    )
 }

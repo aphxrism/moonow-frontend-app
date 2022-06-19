@@ -1,9 +1,7 @@
-export interface IApplicationStorage {
+export interface ILogInPopUp {
+    active: boolean
+
     appName: string
 
-    loginPopUp: boolean
-}
-
-export type IApplicationStorageContext = IApplicationStorage & {
-    update: any
+    toggle?: (active: any) => any
 }
